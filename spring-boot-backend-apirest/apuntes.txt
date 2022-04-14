@@ -1,0 +1,6 @@
+
+@ComponentScan : Busca y registra en el contenedor de spring todas las clases anotadas con @RestController, @Controller, @Component, @Repository @Service
+
+-repository/DAO: Acceso a datos
+
+service: puede contener a los dao
