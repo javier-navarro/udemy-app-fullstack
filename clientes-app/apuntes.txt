@@ -1,0 +1,72 @@
+
+========================
+componentes (seccion 2)
+========================
+Clases de typescript con un decorador.
+
+===================================
+EStructura del proyecto (seccion 2)
+===================================
+2e2 -> test 
+node_module -> librerias y dependencias del proyecto.
+src -> contiene todo el codigo fuente del proyecto.
+editorconfig -> contiene la configuracion del editor.
+gitignore -> archivo por default para git para omitir codigo para el repositorio.
+angular.json -> archivo principal de configuracion del proyecto
+    -polifills -> archivo que nos permite dar compatibilidad con todos los navegadores.
+    -tsconfig -> contiene la configuracion del ts.
+    -assets -> recursos estaticos de nuestra app (js, hojas de estilo, iconos)
+package-lock.json - >
+package.json -> nombre de  aplicacion , versiones y dependencias.
+tsconfig -> configutacion del ts.
+
+===================================
+EStructura del SRC (seccion 2)
+===================================
+app -> css,html,spect y ts del componente principal.
+    -> app.module.ts : repositorio donde se registran los componentes y modulos a utilizar.
+assets ->
+environments -> contiene los endpoint a consumir
+main -> arranca la aplicacion.
+polifills -> aumenta compatibilidad de nuestra app.
+test -> para pruebas unitarias 
+
+===================================
+Integracion Bootstrap(seccion 2)
+===================================
+
+===================================
+Creacion de header (seccion 2)
+===================================
+
+===================================
+ngfor (seccion 2)
+===================================
+
+===================================
+ngIf(seccion 2)
+===================================
+
+===================================
+observables (seccion 3)
+===================================
+son asincronos
+flujo de datos
+concurrentes, no bloquean otros procesos
+hay que suscribirse
+operadores como el map,filter, retry, etc
+manejo de errores y reintentos
+son cancelables
+
+===================================
+routing (seccion 3)
+===================================
+Routermodule y routes (se importan en appmodule.)
+
+===================================
+instalacion bootstrap (seccion 3)
+===================================
+
+
+
+
