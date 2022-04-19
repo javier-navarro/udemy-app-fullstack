@@ -5,9 +5,14 @@
       <h5 class="card-title"> Listado de Clientes </h5>
 
       <div class="my-2 text-left">
-        <button class="btn btn-rounded btn-primary" type="button" [routerLink] = "['/form']" >Crear Cliente</button>
+        <button class="btn btn-rounded btn-primary" type="button" [routerLink] = "['/clientes/form']" >Crear Cliente</button>
       </div>
-        <table class="table table-bordered table-striped">
+
+      <div class="alert-info" *ngIf="this.clientes?.length == 0">
+        No hay registros en base de datos
+
+      </div>
+        <table class="table table-bordered table-striped" *ngIf="this.clientes?.length>0">
             <thead>
                 <tr>
                     <th> ID </th>
@@ -15,15 +20,24 @@
                     <th> Apellido </th>
                     <th> Email </th>
                     <th> Fecha </th>
+                    <th> Acciones </th>
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let x of this.clientes" > 
-                    <td> {{x.id}} </td>
-                    <td> {{x.nombre}} </td>
-                    <td> {{x.apellido}} </td>
-                    <td> {{x.email}} </td>
-                    <td> {{x.createAt | date:'dd/MM/yy'}} </td>
+                <tr *ngFor="let item of this.clientes" > 
+                    <td> {{item.id}} </td>
+                    <td> {{item.nombre}} </td>
+                    <td> {{item.apellido}} </td>
+                    <td> {{item.email}} </td>
+                    <td> {{item.createAt | date:'short'}}</td>
+                    <td class="botonera">
+                      <div class="col-md-6">
+                        <button type="button" name="button" [routerLink]="['/clientes/form', item.id]" class="btn btn-primary btn-sm" >Editar</button>
+                      </div>
+                      <div class="col-md-6">
+                        <button type="button" name="button" (click)="delete(item)" class="btn btn-danger btn-sm" >Eliminar</button>
+                      </div>
+                    </td>
                 </tr>
             </tbody>
         </table>

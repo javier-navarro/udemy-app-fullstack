@@ -1,7 +1,7 @@
-import { CLIENTES } from './../clientes/clientes.json';
+
 import { Cliente } from './../clientes/cliente';
 import { Injectable } from '@angular/core';
-import { map, Observable, of } from 'rxjs';
+import { map, Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable({
@@ -43,6 +43,18 @@ export class ClienteService {
   create(cliente: Cliente): Observable<Cliente> {
     console.log(cliente);
     return this.http.post<Cliente>(this.url, cliente, {headers: this.httpHeaders});
+  }
+
+  getCliente(id:number): Observable<Cliente>{
+    return this.http.get<Cliente> (`${this.url}/${id}`)
+  }
+
+  update(cliente: Cliente): Observable<Cliente>{
+    return this.http.put<Cliente> (`${this.url}/${cliente.id}`,cliente, {headers: this.httpHeaders})
+  }
+
+  delete(id: number): Observable<Cliente>{
+    return this.http.delete<Cliente>(`${this.url}/${id}`, {headers:this.httpHeaders})
   }
 
 
