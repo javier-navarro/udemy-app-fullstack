@@ -5,7 +5,7 @@ import java.io.Serializable;
 import java.util.Date;
 
 @Entity
-@Table(name = "cliente")
+@Table(name = "clientes")
 public class Cliente implements Serializable {
 
 
@@ -15,13 +15,20 @@ public class Cliente implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(nullable = false)
     private String nombre;
     private String apellido;
+    @Column(nullable = false, unique = true)
     private String email;
 
     @Column(name = "create_at")
     @Temporal(TemporalType.DATE)
     private Date createAt;
+
+    @PrePersist
+    public void prePersist(){
+        createAt = new Date();
+    }
 
     public Long getId() {
         return id;
